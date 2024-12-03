@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo1"></div>
+             
+                <div class ="logo2"></div>
+             </div> 
+               <div class="nav-search border">
+                <select class="search-select">
+                    <option>ALL</option>
+                </select>
+                        <input id="search-input" placeholder="Search products" class="search-input">
+                        <button class="search-icon" onclick="performSearch()"><i class="fa-solid fa-magnifying-glass"></i>
+                        </button>                
+                    <script>
+                        function performSearch() {
+                            // Get the value from the search input
+                            const searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+                
+                            // Define search mappings
+                            const pages = {
+                                'clothes': 'pro-1.html',
+                                'personal care': 'pro-2.html',
+                                'furniture': 'pro-3.html',
+                                'electronics': 'pro-4.html',
+                                'toys': 'pro-2.html',
+                                'pet shop': 'pro-1.html',
+                                'watches': 'pro-2.html',
+                                'fashion': 'pro-1.html'
+                            };
+                
+                            // Check if the input matches a page
+                            if (pages[searchQuery]) {
+                                window.location.href = pages[searchQuery]; // Redirect to the appropriate page
+                            } else if (searchQuery) {
+                                alert('No results found for your search: ' + searchQuery);
+                            } else {
+                                alert('Please enter a search term.');
+                            }
+                        }
+                    </script>
+               </div>
+               <div class="nav-signin border">
+                <a href="sub.html">
+                    <p> Welcome</p>
+                <p>Login Here</p></a>
+            </div>
+         <div class="nav-return border">
+            <a href="sub.html">
+                <p> Help</p>
+                <p class="nav-second">& Service</p></a>
+   </div>
+           <div class ="nav-cart border">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="cart.html">
+            Cart</a>
+           </div> 
+        </div>
+
+        <div class="panel">
+            <div class ="panel-all">
+            <i class="fa-solid fa-bars"></i>
+            <a href="sub.html">
+                Menu</a>
+            </div>
+            <div class ="panel-ops">
+                <a href="sub.html">
+                    <p>Excitting Offers</p>
+               <p>Returns & other</p>  
+               <p>Registery</p> 
+              <p> Surprising Gift</p> 
+               <p> Sell</p></a>
+            </div>
+            <div class="panel-corner">
+                <a href="sub.html">
+                    Special Corner</a>
+            </div>
+        </div>
+        </header>
+    <div class="hero-image border">
+        <a href="offer.html">see more</a>
+    </div>
+    
+
+    <div class="shop-section">
+        <div class="box1 box border">
+            <div class="box-content">
+        </div>
+            <h2> Bold clothes design </h2>
+            <div class="box1-img" style="background-image: url('box1.jpg');">  </div>
+            <a href="pro-1.html">
+            <p> See more</p></a>
+     </div>
+        <div class="box2 box  border">
+            <div class="box-content">
+            <h2> Personal Care</h2>
+            <div class="box1-img" style="background-image: url('box2.jpg');">  </div>
+       <a href="pro-2.html">
+            <p> See more</p></a>
+     </div></div>
+    
+        <div class="box3 box  border">
+            <div class="box-content">
+            <h2>Furnitures & Appliance</h2>
+            <div class="box1-img" style="background-image: url('box3.jpg');">  </div>
+            <a href="pro-3.html">
+                <p> See more</p></a>
+     </div></div>
+
+        <div class="box4 box  border">
+            <div class="box-content">
+            <h2> Electronic devices</h2>
+            <div class="box1-img" style="background-image: url('box4.jpg');">  </div>
+            <a href="pro-4.html">
+                <p> See more</p></a>
+                 </div></div>
+
+     <div class="box5 box  border">
+        <div class="box-content">
+        <h2> toys store</h2>
+        <div class="box1-img" style="background-image: url('box5.jpg');">  </div>
+        <a href="pro-2.html">
+            <p> See more</p></a> </div>
+    </div>
+
+    <div class="box6 box  border">
+        <div class="box-content">
+        <h2> Pet Shop</h2>
+        <div class="box1-img" style="background-image: url('box6.jpg');">  </div>
+        <a href="pro-1.html">
+            <p> See more</p></a>
+         </div></div>
+
+    <div class="box7 box  border">
+        <div class="box-content">
+        <h2> Latest watch collection</h2>
+        <div class="box1-img" style="background-image: url('box7_image.jpg');">  </div>
+        <a href="pro-2.html">
+            <p> See more</p></a>
+ </div>
+</div>
+
+    <div class="box8 box  border">
+        <div class="box-content">
+        <h2> Discover fashion trends</h2>
+        <div class="box1-img" style="background-image: url('box8_image.jpg');">  </div>
+        <a href="pro-1.html">
+            <p> See more</p></a>
+         </div>
+        </div>
+
+    </div>
+    <div class="hero-image2  border">
+        <a href="offer.html">see more</a>
+
+    </div>
+    
+    <footer>
+         <!-- Back To Top Button -->
+         <div class="foot-panel1 border">
+            <a href="#top" style="color: black; text-decoration: none;">Back To Top</a>
+        </div>
+        <div class="detail-table">
+            <div class="table1">
+                <div>
+                    <a href="sub.html">
+                    <div class="t-head"> Get to know us</div>
+                    <ul>
+                        <li>About Global Store</li>
+                        <li>Global Store advices </li>
+                        <li>global Store science</li>
+                    </ul></a>
+                </div>
+
+            </div>
+            <div class="table1">
+                <div>
+                    <a href="sub.html">
+                    <div class="t-head"> bussiness with us</div>
+                    <ul>
+                        <li>sell product on Global Store </li>
+                        <li>Sell on Global Store business </li>
+                        <li>sell apps on global store</li>
+                    </ul></a>
+                </div>
+
+            </div> <div class="table1">
+                <div>
+                    <a href="sub.html">
+
+                    <div class="t-head">connect with us</div>
+                    <ul>
+                        <li>Instagram:Global.Store_123</li>
+                        <li> Telegram:Global.Store_321 </li>
+                        <li> Whatsapp:922XXXXXXX</li>
+                    </ul></a>
+                </div>
+
+            </div> <div class="table1">
+                <div>
+                    <a href="sub.html">
+
+                    <div class="t-head"> Let us help you</div>
+                    <ul>
+                        <li>Your account </li>
+                        <li>your order </li>
+                        <li>order & replacement</li>
+                    </ul></a>
+                </div>
+            </div>
+        </div>
+<div class="line"></div>
+<div class="copy">
+    <span>&copy; Designed by AHP_3group </span>
+</div>
+    </footer>
+ </body>
+</html>

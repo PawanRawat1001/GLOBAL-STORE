@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo1"></div>
+                <div class="logo2"></div>
+            </div>
+            <div class="nav-search border">
+                <select class="search-select">
+                    <option>ALL</option>
+                </select>
+                <input placeholder="Search products" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="nav-signin border">
+                <p><span>Welcome</span></p>
+                <p class="nav-second">Login Here</p>
+            </div>
+            <div class="nav-return border">
+                <p><span>Help</span></p>
+                <p class="nav-second">& Service</p>
+            </div>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                Menu
+            </div>
+            <div class="panel-ops">
+                <p>Exciting Offers</p>
+                <p>Returns & Other</p>
+                <p>Registry</p>
+                <p>Surprising Gift</p>
+                <p>Sell</p>
+            </div>
+            <div class="panel-corner">
+                Special Corner
+            </div>
+        </div>
+    </header>
+
+    <div class="cart">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items"></div> <!-- Cart items will be displayed here -->
+        <div id="cart-total">
+            <p>Total: $<span id="total-price">0</span></p>
+        </div>
+        <button id="checkout" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <footer>
+        <!-- Footer (same as product page) -->
+    </footer>
+
+    <script>
+        // Function to remove item from cart
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Remove item at the specified index
+            cart.splice(index, 1);
+            // Update cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            // Reload the page to reflect changes
+            displayCart();
+        }
+
+        // Display cart items
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPriceDiv = document.getElementById('total-price');
+
+            // Clear previous cart items
+            cartItemsDiv.innerHTML = '';
+
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <p>${item.name}</p>
+                        <p>Price: $${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+                        <button onclick="removeItem(${index})">Remove</button>
+                    `;
+                    cartItemsDiv.appendChild(itemDiv);
+                    totalPrice += item.price * item.quantity;
+                });
+            }
+
+            totalPriceDiv.textContent = totalPrice.toFixed(2); // Update total price
+        }
+
+        // Checkout function (redirect to checkout page)
+        function checkout() {
+            alert("Proceeding to checkout...");
+            window.location.href = "checkout.html"; // Replace with actual checkout page
+        }
+
+        // Display cart items when the page loads
+        displayCart();
+    </script>
+
+    <div class="nav-home border">
+        <a href="index.html" style="color: rgba(0, 0, 0, 0.719); text-decoration: none; justify-content:space-evenly;display:flex;background-color:rgb(255, 102, 0) ;height: 50px; font-size: 3rem">Home</a>
+    </div>
+</body>
+</html>

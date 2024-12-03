@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo1"></div>
+                <div class="logo2"></div>
+            </div>
+            <div class="nav-search border">
+                <select class="search-select">
+                    <option>ALL</option>
+                </select>
+                <input placeholder="Search products" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="nav-signin border">
+                <p><span>Welcome</span></p>
+                <p class="nav-second">Login Here</p>
+            </div>
+            <div class="nav-return border">
+                <p><span>Help</span></p>
+                <p class="nav-second">& Service</p>
+            </div>
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+    
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                Menu
+            </div>
+            <div class="panel-ops">
+                <p>Exciting Offers</p>
+                <p>Returns & Other</p>
+                <p>Registry</p>
+                <p>Surprising Gift</p>
+                <p>Sell</p>
+            </div>
+            <div class="panel-corner">
+                Special Corner
+            </div>
+        </div>
+    </header>
+   
+        <div class ="clothes" style="display:flex"> 
+        
+            <div class="Shirt1" style="background-image: url('pc.jpg'); height: 300px; width: 400px; background-size: cover;"></div>
+            <div class="product-info" >
+                <h1>Laptop</h1>
+             
+                <p>Description:i7,3k RAM,10k Battery</p>
+                <p>Price: <strong>$9999.99</strong></p>
+                <button class="buy-btn"  onclick="addToCart('pc', 9999.99, 'pc.jpg')">Buy Now</button>>Buy Now</button>
+            </div>
+        
+    
+
+    
+            <div class="Shirt2" style="background-image: url('wc.jpg'); height: 350px; width: 300px; background-size: cover;"></div>
+            <div class="product-info">
+                <h1>Watch</h1>
+                <p>Description:Bluetooth with speaker and ai features</p>
+                <p>Price: <strong>$999.99</strong></p>
+                <button class="buy-btn" onclick="addToCart('wc', 999.99, 'wc.jpg')">Buy Now</button>>Buy Now</button>
+            </div>
+        
+
+</div>
+<div class="nav-home border">
+    <a href="index.html" style="color: black; text-decoration: none; justify-content:space-evenly;display:flex;background-color:rgb(255, 102, 0) ;height: 50px; font-size: 3rem">Home</a>
+</div>
+<footer>
+    
+    
+        <!-- Detail Table Section with Useful Links -->
+        <div class="detail-table">
+            <div class="table1">
+                <div>
+                    <div class="t-head">Get to know us</div>
+                    <ul>
+                        <li>About Global Store</li>
+                        <li>Global Store Advice</li>
+                        <li>Global Store Science</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table1">
+                <div>
+                    <div class="t-head">Business with us</div>
+                    <ul>
+                        <li>Sell products on Global Store</li>
+                        <li>Sell on Global Store Business</li>
+                        <li>Sell apps on Global Store</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table1">
+                <div>
+                    <div class="t-head">Connect with us</div>
+                    <ul>
+                        <li>Instagram: Global.Store_123</li>
+                        <li>Telegram: Global.Store_321</li>
+                        <li>WhatsApp: 922XXXXXXX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table1">
+                <div>
+                    <div class="t-head">Let us help you</div>
+                    <ul>
+                        <li>Your Account</li>
+                        <li>Your Order</li>
+                        <li>Order & Replacement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Copyright Section -->
+        <div class="copy">
+            <span>&copy; Designed by AHP_3group</span>
+        </div>
+    </footer>
+    <script>
+        // Add to Cart Function
+        function addToCart(name, price, image) {
+            let product = { name, price, image, quantity: 1 };
+
+            // Get existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if product is already in cart
+            let productIndex = cart.findIndex(item => item.name === name);
+            if (productIndex !== -1) {
+                // If already in cart, increase quantity
+                cart[productIndex].quantity += 1;
+            } else {
+                // If not in cart, add new product
+                cart.push(product);
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Alert user and redirect to cart page
+            alert('Product added to cart!');
+            window.location.href = 'cart.html';  // Redirect to cart page
+        }
+    </script>
+</body>
+</html>
